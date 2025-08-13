@@ -116,7 +116,7 @@ def update_monitor_list(*args):
 
 def print_help_text(func_list):
     for func in func_list:
-        print(f">\t{func[1]}\t\t|\t\t{func[2]}")
+        print(f">\t{func[1]:<15}\t|\t\t{func[2]}")
     print(">\thelp\t\t|\t\tPrint help menu")
     print(">\tquit\t\t|\t\tQuit the program")
     print(">\texit\t\t|\t\tExit the program")
@@ -126,10 +126,10 @@ inf_print_monitor_list = [
     print_monitor_list,
     "print",
     """Prints out full monitors list
-\t\t\t\t\t-a [param] for more params
-\t\t\t\t\t-l for param list
-\t\t\t\t\t-f for all parameters
-\t\t\t\t\t-m [N] for monitor N""",
+--->\t   -a [param] for more params
+--->\t   -l for param list
+--->\t   -f for all parameters
+--->\t   -m [N] for monitor N""",
 ]
 inf_update_monitors_list = [
     update_monitor_list,
