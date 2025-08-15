@@ -33,6 +33,32 @@ full_parameter_list = [
     "availableModes",
 ]
 
+current_hypr_monitor_config = []
+hyprland_file_path = "./hyprland.conf"
+hyprland_file_start_line = "MONITOR SCRIPT START HERE"
+hyprland_file_stop_line = "MONITOR SCRIPT STOP HERE"
+
+
+def open_hyprland_file(file_path):
+    with open(file_path) as f:
+        found_start = False
+        for line in f:
+            if line.find("\n") == 0:
+                continue
+            if line.find(hyprland_file_stop_line) == 4:
+                print("Found stop line ")
+                break
+            if found_start:
+                current_hypr_monitor_config.append(line.replace("\n", ""))
+
+            if line.find(hyprland_file_start_line) == 4:
+                found_start = True
+                print("found start")
+    return current_hypr_monitor_config
+
+
+print(open_hyprland_file(hyprland_file_path))
+
 
 def get_hyprctl_monitors_list() -> list:
 
